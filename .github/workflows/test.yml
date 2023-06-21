@@ -18,3 +18,9 @@ jobs:
         uses: ./
         with:
           api-token: ${{ secrets.PACKAGIST_TOKEN }}
+        continue-on-error: true
+
+      - name: Finish step
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo '$GITHUB_CONTEXT'
