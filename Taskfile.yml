@@ -1,0 +1,44 @@
+version: '3'
+
+tasks:
+  config:
+    desc: "config"
+    cmds:
+      - docker-compose config
+  build:
+    desc: "build"
+    cmds:
+      - docker-compose build --pull
+  create:
+    desc: "create"
+    cmds:
+      - docker-compose create
+  start:
+    desc: "start"
+    cmds:
+      - docker-compose start
+  run:
+    desc: "create start"
+    cmds:
+      - task: create
+      - task: start
+  init:
+    desc: "down build run"
+    cmds:
+      - task: down
+      - task: build
+      - task: run
+
+  stop:
+    desc: "stop"
+    cmds:
+      - docker-compose stop
+  down:
+    desc: "down"
+    cmds:
+      - docker-compose down
+
+  sh-php-cli:
+    desc: "exec sh"
+    cmds:
+      - docker-compose run php-cli /bin/sh

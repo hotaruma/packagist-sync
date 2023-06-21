@@ -1,0 +1,26 @@
+{
+    "name": "hotaruma/packagist-sync",
+    "description": "Packagist Sync Github-Action",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Max Denusenko",
+            "email": "maxdenusenko@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Hotaruma\\PackagistSync\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=8.2",
+        "symfony/console": "^6.3",
+        "guzzlehttp/guzzle": "^7.7"
+    }
+}

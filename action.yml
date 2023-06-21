@@ -1,0 +1,34 @@
+name: 'Packagist Sync Action'
+description: 'GitHub Action to automatically sync/update package information on Packagist'
+
+inputs:
+  api-token:
+    description: 'Packagist API token'
+    required: true
+  packagist-username:
+    description: 'Packagist username (optional if package name set in composer.json, use vendor part)'
+    required: false
+  package-name:
+    description: 'Package name (optional if set in composer.json)'
+    required: false
+  packagist-domain:
+    description: 'Packagist domain'
+    required: false
+  github-repository-url:
+    description: 'Github repository url (optional if package already exist)'
+    default: ${{ github.env.event.repository.html_url }}
+    required: false
+  composer-json-path:
+    description: 'Custom composer.json path'
+    required: false
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.api-token }}
+    - ${{ inputs.packagist-username }}
+    - ${{ inputs.package-name }}
+    - ${{ inputs.packagist-domain }}
+    - ${{ inputs.github-repository-url }}
+    - ${{ inputs.composer-json-path }}

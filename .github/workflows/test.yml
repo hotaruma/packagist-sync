@@ -1,0 +1,20 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Testing the action
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Packagist sync
+        uses: ./
+        with:
+          api-token: ${{ secrets.PACKAGIST_TOKEN }}

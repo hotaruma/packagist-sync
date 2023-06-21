@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+    php-cli:
+      user: $UID:$GID
+      build:
+        context: ./
+        dockerfile: ./docker/dev/php-cli/Dockerfile
+      volumes:
+        - ./:/app

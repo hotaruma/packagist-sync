@@ -1,0 +1,6 @@
+.idea
+.phpunit.result.cache
+.git
+.github
+
+vendor
