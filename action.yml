@@ -16,7 +16,7 @@ inputs:
     required: false
   github-repository-url:
     description: 'Github repository url (optional if package already exist)'
-    default: ${{ github.env.event.repository.html_url }}
+    default: ${{ github.event.repository.html_url }}
     required: false
   composer-json-path:
     description: 'Custom composer.json path'
