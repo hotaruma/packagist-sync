@@ -11,7 +11,7 @@ Minimal setup:
 ```yaml
 uses: hotaruma/packagist-sync@v1
 with:
-  api_token: ${{ secrets.PACKAGIST_TOKEN }}
+  api-token: ${{ secrets.packagist_token }}
 
   # Optional Parameters
   packagist-username: 'username'
