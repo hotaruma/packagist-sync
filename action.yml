@@ -32,3 +32,7 @@ runs:
     - ${{ inputs.packagist-domain }}
     - ${{ inputs.github-repository-url }}
     - ${{ inputs.composer-json-path }}
+
+branding:
+  icon: 'arrow-up-circle'
+  color: 'blue'
