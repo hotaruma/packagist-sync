@@ -1,4 +1,4 @@
-name: 'Packagist Sync Action'
+name: 'Packagist Sync'
 description: 'GitHub Action to automatically sync/update package information on Packagist'
 
 inputs:
