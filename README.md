@@ -9,7 +9,7 @@ This action automates the synchronization and updating of package information on
 Minimal setup:
 
 ```yaml
-uses: hotaruma/packagist-sync@v1
+uses: hotaruma/packagist-sync@v1.0.0
 with:
   api-token: ${{ secrets.packagist_token }}
 
