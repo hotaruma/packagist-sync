@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Hotaruma\PackagistSync;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
+use Hotaruma\PackagistSync\Exception\SyncPackageServicePackageNotFoundException;
 use Psr\Http\Message\ResponseInterface;
 use RuntimeException;
 
@@ -41,7 +44,7 @@ class SyncPackageService
     }
 
     /**
-     * @throws RuntimeException
+     * @throws RuntimeException|SyncPackageServicePackageNotFoundException
      */
     public function updatePackage(): void
     {
@@ -58,13 +61,18 @@ class SyncPackageService
         ];
 
         $response = $this->sendPost($url, $data);
+        $code = $response->getStatusCode();
+        if ($code == 404) {
+            throw new SyncPackageServicePackageNotFoundException($this->getPackageName());
+        }
+
         $this->checkResultStatus($response);
     }
 
     /**
      * @throws RuntimeException
      */
-    public function findPackage(): bool
+    public function findPackageByVendorName(): bool
     {
         $url = sprintf(
             'https://%s/packages/list.json?vendor=%s',

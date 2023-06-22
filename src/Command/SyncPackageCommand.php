@@ -12,6 +12,7 @@ use Symfony\Component\Console\{Attribute\AsCommand,
     Input\InputOption,
     Output\OutputInterface
 };
+use Hotaruma\PackagistSync\Exception\SyncPackageServicePackageNotFoundException;
 use Hotaruma\PackagistSync\SyncPackageService;
 use Throwable;
 
@@ -58,13 +59,15 @@ class SyncPackageCommand extends Command
                 ->setGithubRepositoryUrl($input->getOption('github_repository_url') ?: getenv('INPUT_GITHUB-REPOSITORY-URL') ?: null)
                 ->setComposerJsonPath((getenv('GITHUB_WORKSPACE') ?: getcwd()) . ($input->getOption('composer_json_path') ?: getenv('INPUT_COMPOSER-JSON-PATH')));
 
-            if (!$syncPackageService->findPackage()) {
-                $output->writeln('<yellow>Package not found. Creating a new package...</yellow>');
-                $syncPackageService->createPackage();
-            } else {
-                $output->writeln('<yellow>Package found. Updating the package...</yellow>');
+            try {
+                $output->writeln('<yellow>Trying to update the package...</yellow>');
                 $syncPackageService->updatePackage();
+            } catch (SyncPackageServicePackageNotFoundException $e) {
+                $output->writeln(sprintf("'<red>%s</red>'", $e->getMessage()));
+                $output->writeln('<yellow>Creating a new package...</yellow>');
+                $syncPackageService->createPackage();
             }
+
         } catch (Throwable $e) {
 
             $output->writeln(sprintf('<red>An error occurred: %s</red>', $e->getMessage()));
