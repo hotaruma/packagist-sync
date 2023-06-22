@@ -13,7 +13,7 @@ class SyncPackageServicePackageNotFoundException extends RuntimeException implem
     {
         parent::__construct(
             sprintf(
-                'Could not find a package %s',
+                'Could not find a package: %s',
                 $packageName,
             ),
         );

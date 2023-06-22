@@ -63,7 +63,7 @@ class SyncPackageCommand extends Command
                 $output->writeln('<yellow>Trying to update the package...</yellow>');
                 $syncPackageService->updatePackage();
             } catch (SyncPackageServicePackageNotFoundException $e) {
-                $output->writeln(sprintf("'<red>%s</red>'", $e->getMessage()));
+                $output->writeln(sprintf("<red>%s</red>", $e->getMessage()));
                 $output->writeln('<yellow>Creating a new package...</yellow>');
                 $syncPackageService->createPackage();
             }
