@@ -18,7 +18,7 @@ with:
   package-name: 'vendor/package'
   github-repository-url: 'https://github.com/vendor/package'
   packagist-domain: 'https://packagist.org'
-  composer-json-path: 'path/to/composer.json'
+  composer-json-path: '/path/to/'
 ```
 
 ## Inputs
