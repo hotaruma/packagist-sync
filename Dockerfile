@@ -7,6 +7,6 @@ COPY . /action/
 
 RUN cd /action && composer install && \
     chmod +x /action/entrypoint.sh && \
-    chmod +x /action/app
+    chmod +x /action/packagist-sync
 
 ENTRYPOINT ["/action/entrypoint.sh"]
