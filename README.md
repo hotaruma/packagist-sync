@@ -1,6 +1,7 @@
-[![Build and Test](https://github.com/hotaruma/packagist-sync/actions/workflows/test.yml/badge.svg)](https://github.com/hotaruma/packagist-sync/actions/workflows/test.yml)
-
 # Packagist Sync Action
+
+[![Build and Test](https://github.com/hotaruma/packagist-sync/actions/workflows/test.yml/badge.svg)](https://github.com/hotaruma/packagist-sync/actions/workflows/test.yml)
+[![License](https://img.shields.io/github/license/hotaruma/packagist-sync.svg)](https://github.com/hotaruma/packagist-sync/blob/master/LICENSE)
 
 This action automates the synchronization and updating of package information on Packagist.
 
