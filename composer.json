@@ -1,6 +1,14 @@
 {
     "name": "hotaruma/packagist-sync",
     "description": "Packagist Sync Github-Action",
+    "keywords": [
+        "api",
+        "packagist",
+        "publishing",
+        "apimanagement",
+        "github-actions"
+    ],
+    "homepage": "https://github.com/hotaruma/packagist-sync",
     "license": "MIT",
     "authors": [
         {
@@ -18,9 +26,12 @@
             "Tests\\": "tests/"
         }
     },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
     "require": {
         "php": ">=8.2",
         "symfony/console": "^6.3",
         "guzzlehttp/guzzle": "^7.7"
-    }
+    },
+    "bin": ["packagist-sync"]
 }

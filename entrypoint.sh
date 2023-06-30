@@ -1,3 +1,3 @@
 #!/bin/sh -l
 
-/action/app package:sync "$1"
+/action/packagist-sync package:sync "$1"
